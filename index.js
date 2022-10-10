@@ -52,6 +52,11 @@ Create a variable called random and assign to it a random number between 0 and 2
 */
 console.log("\n\n\nEXERCISE C")
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max)
+}
+console.log("Exercise C: " + getRandomInt(15)) /*max, limit for random number*/
+
 /* EXERCISE D
 
 Create a variable called me and assign to it an object containing the following information: name = your name, surname = your surname, age = your age.
@@ -104,13 +109,20 @@ console.log("\n\n\nEXERCISE G")
 Write a function called dice; it should randomize an integer number between 1 and 6.
 
 */
+console.log("\n\n\nEXERCISE 1")
+let randomNum
+
+function dice() {
+  randomNum = Math.floor(Math.random() * 6)
+}
+console.log("The random Numbers:", randomNum)
 
 /* EXERCISE 2
 
 Write a function called whoIsBigger which receives 2 numbers as parameters and returns the biggest one.
 
 */
-
+console.log("\n\n\nEXERCISE 2")
 function whoIsBigger(a, b) {
   if (a > b) {
     return a
@@ -118,7 +130,7 @@ function whoIsBigger(a, b) {
     return b
   }
 }
-console.log("Exercise 2: " + whoIsBigger(20, 10))
+console.log("What is the biggest number" + whoIsBigger(20, 10))
 
 /* EXERCISE 3
 
@@ -149,12 +161,21 @@ Ex.: onlyLetters("I have 4 dogs") => returns "I have dogs"
 Write a function called isThisAnEmail which receives a string as a parameter and returns true if the string is a valid email address.
 
 */
+console.log("\n\n\nEXERCISE 6")
 
 /* EXERCISE 7
 
 Write a function called whatDayIsIt that should return the current day of the week.
 
 */
+console.log("\n\n\nEXERCISE 7")
+
+function whatDayIsIt() {
+  let today = new Date()
+  let whatDayLetters = today.toLocaleString("default", { weekday: "long" })
+  return whatDayLetters
+}
+console.log("What day is it:", whatDayIsIt())
 
 /* EXERCISE 8
 
@@ -199,6 +220,14 @@ Write a function called deleteProp which receives an object and a string as para
 and returns the given object after deleting its property named as the given string.
 
 */
+
+function deleteProp(obj, prop) {
+  if (obj.hasOwnProperty(prop)) {
+    //make sure the property exists
+    delete obj[prop]
+  }
+  return obj
+}
 
 /* EXERCISE 12
 
