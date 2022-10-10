@@ -65,8 +65,8 @@ Create a variable called me and assign to it an object containing the following 
 console.log("\n\n\nEXERCISE D")
 
 const me = {
-  firstName: "Victor",
-  surName: "Oluwole",
+  name: "Victor",
+  surname: "Oluwole",
   age: 30
 }
 
@@ -89,7 +89,7 @@ Write a piece of code for programmatically adding to the me object you defined b
 */
 console.log("\n\n\nEXERCISE F")
 
-me.skills = "html, css, js, github"
+me.skills = ["html", "css", "js", "github"]
 
 console.log("\n Skill has just been added to me:", me)
 
@@ -100,7 +100,8 @@ Write a piece of code for programmatically removing the last skill from the skil
 */
 console.log("\n\n\nEXERCISE G")
 
-//console.log("\n the last skill in the skills array is removed:", me)
+delete me.skills.pop()
+console.log("The last skill in the skills array is removed:", me)
 
 // JS Functions
 
@@ -110,12 +111,11 @@ Write a function called dice; it should randomize an integer number between 1 an
 
 */
 console.log("\n\n\nEXERCISE 1")
-let randomNum
 
 function dice() {
-  randomNum = Math.floor(Math.random() * 6)
+  return Math.ceil(Math.random() * 6)
 }
-console.log("The random Numbers:", randomNum)
+console.log("The random Numbers:", dice())
 
 /* EXERCISE 2
 
@@ -124,13 +124,11 @@ Write a function called whoIsBigger which receives 2 numbers as parameters and r
 */
 console.log("\n\n\nEXERCISE 2")
 function whoIsBigger(a, b) {
-  if (a > b) {
-    return a
-  } else {
-    return b
-  }
+  if (a > b) return a
+  if (b > a) return b
 }
-console.log("What is the biggest number" + whoIsBigger(20, 10))
+const biggerNumber = whoIsBigger(20, 10)
+console.log("What is the biggest number" + biggerNumber)
 
 /* EXERCISE 3
 
@@ -140,6 +138,14 @@ Ex.: splitMe("I love coding") => returns ["I", "Love", "Coding"]
 
 */
 
+let string = "I love coding"
+function splitMe(a) {
+  return a.split(" ")
+}
+
+const arr = splitMe(string)
+console.log("This is the array from our string:", arr)
+
 /* EXERCISE 4
 
 Write a function called deleteOne which receives a string and a boolean as parameters.
@@ -147,7 +153,21 @@ Write a function called deleteOne which receives a string and a boolean as param
 If the boolean value is true it should return the string without the first letter, otherwise it should remove the last one from it.
 
 */
+console.log("\n\n\nEXERCISE 4")
 
+let myString = "NOVEMBER"
+function deleteOne(a, b) {
+  if (a === true) {
+    return b.slice(1)
+  } else if (a === false) {
+    return b.slice(-1)
+  } else {
+    ;("Please input a boolean and a string")
+  }
+}
+
+let newString = deleteOne(true, myString)
+console.log("This is our String now:", newString)
 /* EXERCISE 5
 
 Write a function called onlyLetters which receives a string as a parameter and returns it removing all the digits.
@@ -196,6 +216,22 @@ values: [3, 3, 4]
 }
 
 */
+console.log("\n\n\nEXERCISE 8")
+
+const rollTheDices = function (numberOfThrows) {
+  const result = {
+    sum: 0,
+    values: []
+  }
+  for (i = 0; i < numberOfThrows; i++) {
+    const diceRoll = dice()
+    result.sum = result.sum + diceRoll
+    result.values.push(diceRoll)
+  }
+  return result
+}
+
+console.log(rollTheDices(3))
 
 /* EXERCISE 9
 
