@@ -301,17 +301,17 @@ Write a function called onlyInThisMillennium which returns only the movies produ
 */
 console.log("\n\n\nEXERCISE 15")
 
-function onlyInThisMillennium(movieList) {
-  let titleList = []
-
-  for (let i = 0; i < movieList.length; i++) {
-    if (Number(movieList[i].Year) > 1999) {
-      titleList.push(movieList[i].Title)
+const onlyInThisMillennium = function () {
+  let result = []
+  for (let i = 0; i < movies.length; i++) {
+    if (parseInt(movies[i].Year) > 1999) {
+      result.push(movies[i])
     }
   }
-  return titleList
+
+  return result
 }
-console.log(onlyInThisMillennium(movies))
+
 /* EXERCISE 16
 
 Write a function called getMovieById which receives an id as a parameter and returns the movie with the given id from the provided movies array.
@@ -385,6 +385,17 @@ tree(3)
 Create a function called "isItPrime" that receives a number as a parameter and returns true if the given number is a prime number.
 
 */
+console.log("\n\n\nEXERCISE 23")
+
+const isItPrime = function (number) {
+  for (let i = 2; i < number; i++) {
+    if (number % i === 0) {
+      return false
+    }
+  }
+
+  return true
+}
 
 /* WHEN YOU ARE FINISHED
 
